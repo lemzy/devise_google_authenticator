@@ -33,7 +33,7 @@ class Devise::CheckgaController < Devise::SessionsController
         end
       else
         set_flash_message(:error, :error)
-        respond_with resource, :location => after_sign_in_path_for(resource)
+        redirect_to devise_resource_sign_in_path
       end
 
     else
@@ -46,5 +46,9 @@ class Devise::CheckgaController < Devise::SessionsController
 
   def devise_resource
     self.resource = resource_class.new
+  end
+
+  def devise_resource_sign_in_path
+    "new_#{resource_name}_session_path"
   end
 end
