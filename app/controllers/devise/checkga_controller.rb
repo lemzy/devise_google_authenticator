@@ -33,7 +33,7 @@ class Devise::CheckgaController < Devise::SessionsController
         end
       else
         set_flash_message(:error, :error)
-        redirect_to devise_resource_sign_in_path
+        redirect_to send(devise_resource_sign_in_path)
       end
 
     else
